@@ -4,7 +4,7 @@ import plotly.express as px
 
 # Load and preprocess data
 # Ensure you've replaced the path with the correct path to your dataset
-df = pd.read_csv('/Users/liyuanhao/Downloads/techin510-lab5-main/events v2.csv')
+df = pd.read_csv('events v2.csv')
 
 # Preprocess if necessary (e.g., parsing dates)
 # This example assumes the DataFrame is ready for visualization
