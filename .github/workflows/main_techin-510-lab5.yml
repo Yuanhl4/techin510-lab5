@@ -1,7 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python app to Azure Web App - techin-510-lab5
 
 on:
@@ -65,14 +61,12 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3D1DB9C8D2524520A27917BAA5E6C88B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_019157A3C0C24E4989E113682871A193 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A8F0F0E98CE4456883A61230A6CBBE1E }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }} # Ensure you have AZURE_CREDENTIALS secret set up in your repo
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'techin-510-lab5'
-          slot-name: 'Production'
-          
+          package: '.' # Specifies the directory or zip file path to deploy
+          # If using slots, specify slot-name with your slot name or use 'production' if deploying to the main app
